@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+/* Base styles */
+body {
+    background-color: #111;
+    color: white;
+    font-family: Orbitron, monospace;
+    padding: 1rem;
+    margin: 0;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+#ui {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+p {
+    max-width: 800px;
+    margin: 1.5rem auto;
+    font-family: monospace;
+    line-height: 1.6;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.credit {
+    font-size: 1.2em;
+    margin-top: -10px;
+}
+
+a {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    p {
+        font-size: 1.3em;
+    }
+    
+    .machine, .control-group {
+        margin: 5px 0;
+    }
+    
+    .controls {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    
+    .pattern {
+        height: 150px;
+    }
+    
+    .machine .group {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        grid-template-columns: 20px auto 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+    
+    .pattern {
+        height: 120px;
+    }
+    
+    .button-group {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 0.5em;
+    }
+
+    .controls-container {
+        height: 200px;
+    }
+}
+
+.machine, .control-group {
+    background-color: black;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: grid;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    grid-template-columns: 20px auto;
+    border: 1px solid #444444;
+    margin: 5px;
+}
+
+.label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+    /* left because we're 180 rotated */
+    border-left: 1px solid #444444;
+}
+
+.machine .group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: grid;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    grid-template-columns: 25px auto 70px;
+}
+
+.controls {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.control-group {
+    height: 100px;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.control-group .group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
+.control-group .group button {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.pattern {
+    width: 100%;
+    height: 200px;
+    /*min-height: 150px;*/
+    /*border-right:1px solid rgba(255,255,255,0.3);*/
+}
+
+button {
+    color: white;
+    background-color: #111;
+    border: 1px solid #444;
+    text-align: center;
+    cursor: pointer;
+    font-family: Orbitron, monospace
+}
+
+button:hover {
+    background-color: #222;
+}
+
+.dial {
+    display: block;
+}
+
+.mutes button {
+    height: 50px;
+    display: block;
+}
+
+.mutes .on {
+    background-color: #770000;
+}
+
+.trigger-button {
+    font-size: 20px;
+    padding: 0;
+    text-align: center;
+}
+
+.params.horizontal .dial {
+    display: inline-block;
+}
+
+.control-group .params {
+    height: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
+
+.control-group {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.meter canvas {
+    object-fit: fill;
+    height: 100px;
+    width: 100px;
+}
+
+@-webkit-keyframes wait-animate {
+    0% { background-color: #800080; }
+    50% { background-color: #008b8b; }
+    100% { background-color: #800080; }
+}
+
+@keyframes wait-animate {
+    0% { background-color: #800080; }
+    50% { background-color: #008b8b; }
+    100% { background-color: #800080; }
+}
+
+button.waiting {
+    background-color: #800080;
+    -webkit-animation: wait-animate 0.2s infinite;
+    animation: wait-animate 0.2s infinite;
+}
+
+.parameter-controlled {
+    background-color: #222266;
+}
+
+.frequency {
+    width: 100%;
+    height: 200px;
+    margin: 10px 0;
+    border-radius: 4px;
+    background: #222266;
+}
+
+.notegen-note-display {
+    width: 200px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+}
+
+.controls button {
+    width: 100%;
+}
+
+@-webkit-keyframes autopilot-animate {
+    0% { background-color: #113311; }
+    50% { background-color: green; }
+    100% { background-color: #113311; }
+}
+
+@keyframes autopilot-animate {
+    0% { background-color: #113311; }
+    50% { background-color: green; }
+    100% { background-color: #113311; }
+}
+
+.autopilot-button.on {
+    -webkit-animation: autopilot-animate 2s infinite;
+    animation: autopilot-animate 2s infinite;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.controls-container {
+    height: 160px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.button-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 1em;
+    margin: 1em auto;
+    max-width: 600px;
+    padding: 0 1rem;
+    position: relative;
+    min-height: 60px;
+}
+
+.control-button {
+    display: block;
+    min-width: 10rem;
+    padding: 0.8em;
+    font-size: 1.1em;
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #666;
+    border-radius: 8px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    min-height: 44px;
+    width: 140px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.button-group .control-button {
+    margin: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 220px;
+}
+
+@media (max-width: 480px) {
+    .control-button {
+        width: 90%;
+        margin: 0.7em auto;
+        font-size: 1em;
+    }
+    
+    .button-group {
+        padding: 0 0.5rem;
+        gap: 0.5em;
+    }
+    
+    .button-group .control-button {
+        padding: 0.8em 0.5em;
+    }
+}
+
+.control-button:hover {
+    background-color: #444;
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+}
+
+.control-button:active {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+}
+
+#pause-button {
+    display: none;
+}
+
+#random-button {
+    display: none;
+}
+
+.credit {
+    & p {
+        font-size: 0.8em;
+    }
+    
+    & p:nth-child(1) {
+        margin-bottom: -1.3em;
+    }
+}
